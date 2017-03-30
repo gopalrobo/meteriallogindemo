@@ -17,20 +17,20 @@
             android:id="@+id/closetxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:tag="@string/transition_close"
             android:transitionName="@string/transition_close"
-            android:drawableRight="@drawable/icclearblack24dp"
+            android:drawableEnd="@drawable/icclearblack24dp"
             android:drawableTint="@color/android_hint_colour" />
 
         <TextView
             android:id="@+id/nametxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="20dp"
             android:text="FULL NAME"
             android:textColor="@android:color/black" />
