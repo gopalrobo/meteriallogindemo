@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="action_settings">Settings</string>
+    <string name="transition_login">login</string>
+    <string name="transition_signup">signup</string>
+    <string name="transition_close">close</string>
+    <string name="terms">I aggree all statments in </string>
+     <string name="emailtxt">Email txt shared</string>
+    <string name="email_edittxt">Email edittxt shared</string>
+    <string name="passwordtxt">Pass txt shared</string>
+    <string name="passwoed_edittxt">Password edittxt shared</string>
+
+
+</resources>

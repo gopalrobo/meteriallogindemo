@@ -1,0 +1,162 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/ghostwhite"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <TextView
+            android:id="@+id/closetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:tag="@string/transition_close"
+            android:transitionName="@string/transition_close"
+            android:drawableRight="@drawable/icclearblack24dp"
+            android:drawableTint="@color/android_hint_colour" />
+
+        <TextView
+            android:id="@+id/nametxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="20dp"
+            android:text="FULL NAME"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/nameEdittxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:hint="Enter your full name"
+            android:paddingBottom="20dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/editText" />
+
+        <TextView
+            android:id="@+id/emailtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:tag="@string/emailtxt"
+            android:text="E-MAIL"
+            android:textColor="#000000"
+            android:transitionName="@string/emailtxt" />
+
+        <EditText
+            android:id="@+id/emailEdittxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:hint="Your E-mail goes here"
+            android:paddingBottom="20dp"
+            android:tag="@string/email_edittxt"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/editText"
+            android:transitionName="@string/email_edittxt" />
+
+        <TextView
+            android:id="@+id/passtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:tag="@string/passwordtxt"
+            android:text="PASSWORD"
+            android:textColor="@android:color/black"
+            android:transitionName="@string/passwordtxt" />
+
+        <EditText
+            android:id="@+id/passEdittxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:hint="********"
+            android:inputType="numberPassword"
+            android:paddingBottom="20dp"
+            android:tag="@string/passwoed_edittxt"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/editText"
+            android:transitionName="@string/passwoed_edittxt" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/checkBox"
+                android:layout_alignBottom="@+id/checkBox"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toEndOf="@+id/checkBox"
+                android:layout_toRightOf="@+id/checkBox"
+                android:text="@string/terms"
+                android:textColor="@color/android_hint_colour" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/checkBox"
+                android:layout_toRightOf="@+id/checkBox"
+                android:text="Terms of service"
+                android:textColor="@color/colorPrimary" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.5dp"
+                android:layout_alignEnd="@+id/textView2"
+                android:layout_alignRight="@+id/textView2"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/checkBox"
+                android:background="@color/colorPrimary" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/signup_btn"
+            android:tag="signin"
+            android:text="SIGH IN"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:transitionName="@string/transition_signup" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
