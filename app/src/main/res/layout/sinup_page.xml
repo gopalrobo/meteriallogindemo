@@ -154,7 +154,7 @@
             android:layout_marginTop="35dp"
             android:background="@drawable/signup_btn"
             android:tag="signin"
-            android:text="SIGH IN"
+            android:text="SIGN IN"
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:transitionName="@string/transition_signup" />
