@@ -43,6 +43,7 @@
             android:layout_marginTop="5dp"
             android:hint="Enter your full name"
             android:paddingBottom="20dp"
+            android:inputType="textCapWords"
             android:textColor="@android:color/black"
             android:textColorHint="@color/editText" />
 
@@ -69,6 +70,7 @@
             android:hint="Your E-mail goes here"
             android:paddingBottom="20dp"
             android:tag="@string/email_edittxt"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/black"
             android:textColorHint="@color/editText"
             android:transitionName="@string/email_edittxt" />

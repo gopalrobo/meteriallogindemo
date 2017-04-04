@@ -1,5 +1,7 @@
 package com.katomaran.example.login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,12 +11,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by gopalsamy.k on 20/3/17.
  */
 
 public class SignupActivity extends AppCompatActivity {
+
+
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String username = "usernameKey";
+    public static final String password = "passwordKey";
+    public static final String email = "emailKey";
+
+
     private TextView nametx;
     private TextView statictx;
     private Button signup;
@@ -42,7 +54,21 @@ public class SignupActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                if (nameed.getText().toString().length() > 0 && passed.getText().toString().length() > 0) {
+
+                    sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES, 0); // 0 - for private mode
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString(username, nameed.getText().toString());
+                    editor.putString(password, passed.getText().toString());
+                    editor.putString(email, emailed.getText().toString());
+                    editor.commit();
+                    onBackPressed();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

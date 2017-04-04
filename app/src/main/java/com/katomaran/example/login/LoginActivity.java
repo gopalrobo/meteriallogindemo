@@ -3,7 +3,9 @@ package com.katomaran.example.login;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -22,6 +24,7 @@ import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -29,6 +32,14 @@ import android.widget.TextView;
  */
 
 public class LoginActivity extends AppCompatActivity {
+
+
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String username = "usernameKey";
+    public static final String password = "passwordKey";
+    public static final String email = "emailKey";
+    public static final String loginUser = "loginUserKey";
 
     private Button login;
     private Button signup;
@@ -55,14 +66,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent io = new Intent(LoginActivity.this, SignupActivity.class);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
                     Pair<View, String> pair1 = Pair.create(signup.findViewWithTag(getResources().getString(R.string.transition_signup)), signup.getTransitionName());
                     Pair<View, String> pair2 = Pair.create(emailtx.findViewWithTag(getResources().getString(R.string.emailtxt)), emailtx.getTransitionName());
                     Pair<View, String> pair3 = Pair.create(emailed.findViewWithTag(getResources().getString(R.string.email_edittxt)), emailed.getTransitionName());
                     Pair<View, String> pair4 = Pair.create(passtx.findViewWithTag(getResources().getString(R.string.passwordtxt)), passtx.getTransitionName());
                     Pair<View, String> pair5 = Pair.create(passed.findViewWithTag(getResources().getString(R.string.passwoed_edittxt)), passed.getTransitionName());
                     Pair<View, String> pair6 = Pair.create(closetxt.findViewWithTag(getResources().getString(R.string.transition_close)), closetxt.getTransitionName());
-                    ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation(LoginActivity.this, pair1, pair2, pair3, pair4, pair5, pair6);
+                    ActivityOptionsCompat options = ActivityOptionsCompat
+                            .makeSceneTransitionAnimation(LoginActivity.this, pair1, pair2, pair3, pair4, pair5, pair6);
                     startActivity(io, options.toBundle());
                 } else {
                     startActivity(io);
@@ -72,7 +84,24 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                if (sharedpreferences.contains(username)) {
+                    String savedEmail = sharedpreferences.getString(email, null);
+                    String savedPass = sharedpreferences.getString(password, null);
+                    if (emailed.getText().toString().equals(savedEmail)
+                            && passed.getText().toString().equals(savedPass)) {
+                        SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES, 0); // 0 - for private mode
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString(loginUser, sharedpreferences.getString(username, null));
+                        editor.commit();
+                        onBackPressed();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Credentials not matched", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Sign up", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         closetxt.setOnClickListener(new View.OnClickListener() {
