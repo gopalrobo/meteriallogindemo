@@ -49,11 +49,20 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     startActivity(io);
                 }
+
             }
         });
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        toolbarTextAppernce();
+        collapsingToolbarLayout.setExpandedTitleTypeface(custom_font);
+        collapsingToolbarLayout.setCollapsedTitleTypeface(custom_font);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         if (sharedpreferences.contains(loginUser)) {
@@ -62,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
             userName = "LOG IN";
         }
         collapsingToolbarLayout.setTitle(userName);
-        toolbarTextAppernce();
-        collapsingToolbarLayout.setExpandedTitleTypeface(custom_font);
-        collapsingToolbarLayout.setCollapsedTitleTypeface(custom_font);
 
     }
 
