@@ -7,4 +7,4 @@ Material Log-in &amp; Sign-up layout with Shared Preferences using Shared Elemen
    -buildToolsVersion "25.0.2"<br>
    -Android SDK platform tools 25.0.4
 
-http://stackoverflow.com/questions/11804820/embed-a-youtube-video
+[![Little red ridning hood](http://i.imgur.com/7YTMFQp.png)](https://vimeo.com/3514904 "Little red riding hood - Click to Watch!")
